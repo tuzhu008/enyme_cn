@@ -1896,31 +1896,23 @@
                                 <h1 id="enzyme">Enzyme</h1>
 <p><a href="https://gitter.im/airbnb/enzyme?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/airbnb/enzyme"></a></p>
 <p><a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/v/enzyme.svg" alt="npm Version"></a> <a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/l/enzyme.svg" alt="License"></a> <a href="https://travis-ci.org/airbnb/enzyme" target="_blank"><img src="https://travis-ci.org/airbnb/enzyme.svg" alt="Build Status"></a> <a href="https://coveralls.io/github/airbnb/enzyme?branch=master" target="_blank"><img src="https://coveralls.io/repos/airbnb/enzyme/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a></p>
-<p>Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate,
-and traverse your React Components&apos; output.</p>
-<p>Enzyme&apos;s API is meant to be intuitive and flexible by mimicking jQuery&apos;s API for DOM manipulation
-and traversal.</p>
-<h1 id="upgrading-from-enzyme-2x-or-react--16">Upgrading from Enzyme 2.x or React &lt; 16</h1>
-<p>Are you here to check whether or not Enzyme is compatible with React 16? Are you currently using
-Enzyme 2.x? Great! Check out our <a href="docs/guides/migration-from-2-to-3.html">migration guide</a> for help
-moving on to Enzyme v3 where React 16 is supported.</p>
-<h3 id="installation"><a href="docs/installation/">Installation</a></h3>
-<p>To get started with enzyme, you can simply install it via npm. You will need to install enzyme
-along with an Adapter corresponding to the version of react (or other UI Component library) you
-are using. For instance, if you are using enzyme with React 16, you can run:</p>
+<p>Enzyme&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;React&#x7684;JavaScript&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x80FD;&#x66F4;&#x5BB9;&#x6613;&#x5730;&#x65AD;&#x8A00;&#xFF0C;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x904D;&#x5386;&#x60A8;&#x7684;React&#x7EC4;&#x4EF6;&#x7684;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x6A21;&#x4EFF;jQuery&#x7684;DOM&#x64CD;&#x4F5C;&#x548C;&#x904D;&#x5386;API&#xFF0C;Enzyme&#x7684;API&#x662F;&#x76F4;&#x89C2;&#x548C;&#x7075;&#x6D3B;&#x7684;&#x3002;</p>
+<h1 id="&#x4ECE;-enzyme-2x-&#x6216;&#x8005;-react--16&#x5347;&#x7EA7;">&#x4ECE; Enzyme 2.x &#x6216;&#x8005; React &lt; 16&#x5347;&#x7EA7;</h1>
+<p>&#x4F60;&#x662F;&#x5426;&#x5728;&#x8FD9;&#x91CC;&#x68C0;&#x67E5;Enzyme&#x662F;&#x5426;&#x4E0E;React 16&#x76F8;&#x517C;&#x5BB9;?&#x4F60;&#x76EE;&#x524D;&#x4F7F;&#x7528;Enzyme 2.x?&#x592A;&#x68D2;&#x4E86;!&#x8BF7;&#x53C2;&#x9605;&#x6211;&#x4EEC;&#x7684;<a href="docs/guides/migration-from-2-to-3.html">&#x8FC1;&#x79FB;&#x6307;&#x5357;</a>&#x5BFB;&#x6C42;&#x5E2E;&#x52A9;&#x6765;&#x8F6C;&#x5230;&#x652F;&#x6301;React 16&#x7684;Enzyme v3&#x3002;</p>
+<h3 id="&#x5B89;&#x88C5;"><a href="docs/installation/">&#x5B89;&#x88C5;</a></h3>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;npm&#x6765;&#x7B80;&#x5355;&#x5730;&#x5B89;&#x88C5;enzyme&#xFF0C;&#x5E76;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x4F60;&#x8FD8;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x4E0E;&#x5F53;&#x524D;&#x4F60;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#x7684;React&#x7248;&#x672C;&#x5BF9;&#x5E94;&#x7684;enzyme&#x9002;&#x914D;&#x5668;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x662F;React 16,&#x4F60;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;:</p>
 <pre><code class="lang-bash">npm i --save-dev enzyme enzyme-adapter-react-16
 </code></pre>
-<p>Each adapter may have additional peer dependencies which you will need to install as well. For instance,
-<code>enzyme-adapter-react-16</code> has peer dependencies on <code>react</code>, <code>react-dom</code>, and <code>react-test-renderer</code>.</p>
-<p>At the moment, Enzyme has adapters that provide compatibility with <code>React 16.x</code>, <code>React 15.x</code>,
-<code>React 0.14.x</code> and <code>React 0.13.x</code>.</p>
-<p>The following adapters are officially provided by enzyme, and have the following compatibility with
-React:</p>
+<p>&#x6BCF;&#x4E2A;&#x9002;&#x914D;&#x5668;&#x90FD;&#x53EF;&#x80FD;&#x6709;&#x989D;&#x5916;&#x7684;&#x5BF9;&#x7B49;&#x4F9D;&#x8D56;&#xFF0C;&#x60A8;&#x4E5F;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x8FD9;&#x4E9B;&#x4F9D;&#x8D56;&#x9879;&#x3002;&#x4F8B;&#x5982;,<code>enzyme-adapter-react-16</code>&#x5BF9;&#x7B49;&#x4F9D;&#x8D56;&#x4E8E;<code>react</code>, <code>react-dom</code>, &#x548C;<code>react-test-renderer</code>&#x3002;</p>
+<p>&#x76EE;&#x524D;&#xFF0C;Enzyme&#x5177;&#x6709;&#x4E0E;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7248;&#x672C;&#x7684;React&#x517C;&#x5BB9;&#x7684;&#x9002;&#x914D;&#x5668;&#xFF1A;<code>React 16.x</code>, <code>React 15.x</code>,
+<code>React 0.14.x</code> &#x548C; <code>React 0.13.x</code>&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x9002;&#x914D;&#x5668;&#x662F;&#x7531;enzyme&#x6B63;&#x5F0F;&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4E0E;React&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x517C;&#x5BB9;&#x6027;</p>
 <table>
 <thead>
 <tr>
-<th>Enzyme Adapter Package</th>
-<th>React semver compatibility</th>
+<th>Enzyme &#x9002;&#x914D;&#x5668;&#x5305;</th>
+<th>React &#x4E3B;&#x7248;&#x672C;&#x517C;&#x5BB9;&#x6027;</th>
 </tr>
 </thead>
 <tbody>
@@ -1946,17 +1938,16 @@ React:</p>
 </tr>
 </tbody>
 </table>
-<p>Finally, you need to configure enzyme to use the adapter you want it to use. To do this, you can use
-the top level <code>configure(...)</code> API.</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x60A8;&#x9700;&#x8981;&#x914D;&#x7F6E;enzyme&#x6765;&#x4F7F;&#x7528;&#x60A8;&#x5E0C;&#x671B;&#x5B83;&#x4F7F;&#x7528;&#x7684;&#x9002;&#x914D;&#x5668;&#x3002;&#x8981;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9876;&#x7EA7;&#x7684;<code>configure(...)</code>API&#x3002;</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Enzyme <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
 <span class="hljs-keyword">import</span> Adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme-adapter-react-16&apos;</span>;
 
 Enzyme.configure({ adapter: <span class="hljs-keyword">new</span> Adapter() });
 </code></pre>
-<h1 id="3rd-party-adapters">3rd Party Adapters</h1>
-<p>It is possible for the community to create additional (non-official) adapters that will make enzyme
-work with other libraries. If you have made one and it&apos;s not included in the list below, feel free
-to make a PR to this README and add a link to it! The known 3rd party adapters are:</p>
+<h1 id="&#x7B2C;&#x4E09;&#x65B9;&#x9002;&#x914D;&#x5668;">&#x7B2C;&#x4E09;&#x65B9;&#x9002;&#x914D;&#x5668;</h1>
+<p>&#x793E;&#x533A;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x989D;&#x5916;&#x7684;(&#x975E;&#x6B63;&#x5F0F;&#x7684;)&#x9002;&#x914D;&#x5668;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;enzyme
+&#x4E0E;&#x5176;&#x4ED6;&#x5E93;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5236;&#x4F5C;&#x4E86;&#x4E00;&#x4E2A;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5305;&#x542B;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x8BF7;&#x968F;&#x610F;
+&#x4E3A;&#x8FD9;&#x4E2A;README&#x521B;&#x5EFA;&#x4E00;&#x4E2A;PR&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x94FE;&#x63A5;&#xFF01;&#x5DF2;&#x77E5;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x9002;&#x914D;&#x5668;&#x6709;:</p>
 <table>
 <thead>
 <tr>
@@ -1978,12 +1969,18 @@ to make a PR to this README and add a link to it! The known 3rd party adapters a
 </tr>
 </tbody>
 </table>
-<h1 id="running-enzyme-tests">Running Enzyme Tests</h1>
+<h1 id="&#x8FD0;&#x884C;-enzyme-&#x6D4B;&#x8BD5;">&#x8FD0;&#x884C; Enzyme &#x6D4B;&#x8BD5;</h1>
 <p>Enzyme is unopinionated regarding which test runner or assertion library you use, and should be
 compatible with all major test runners and assertion libraries out there. The documentation and
 examples for enzyme use <a href="https://mochajs.org/" target="_blank">mocha</a> and <a href="http://chaijs.com/" target="_blank">chai</a>, but you
-should be able to extrapolate to your framework of choice.</p>
-<p>If you are interested in using enzyme with custom assertions and convenience functions for
+should be able to extrapolate to your framework of choice.
+&#x5BF9;&#x4E8E;&#x60A8;&#x4F7F;&#x7528;&#x7684;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x5668;&#x6216;&#x65AD;&#x8A00;&#x5E93;&#xFF0C;&#x9176;&#x662F;&#x4E0D;&#x56FA;&#x6267;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x8FD9;&#x6837;&#x7684;
+&#x4E0E;&#x6240;&#x6709;&#x4E3B;&#x8981;&#x7684;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x548C;&#x65AD;&#x8A00;&#x5E93;&#x517C;&#x5BB9;&#x3002;&#x7684;&#x6587;&#x6863;&#x548C;
+&#x9176;&#x7684;&#x793A;&#x4F8B;&#x4F7F;&#x7528;mocha(<a href="https://mochajs.org/)&#x548C;chai(http://chaijs.com/)&#x3002;" target="_blank">https://mochajs.org/)&#x548C;chai(http://chaijs.com/)&#x3002;</a>
+&#x5E94;&#x8BE5;&#x80FD;&#x591F;&#x63A8;&#x65AD;&#x51FA;&#x4F60;&#x7684;&#x9009;&#x62E9;&#x6846;&#x67B6;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x65AD;&#x8A00;&#x548C;&#x4FBF;&#x5229;&#x51FD;&#x6570;&#x7684;&#x9176;&#x611F;&#x5174;&#x8DA3;
+&#x6D4B;&#x8BD5;&#x60A8;&#x7684;&#x53CD;&#x5E94;&#x7EC4;&#x4EF6;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;:
+If you are interested in using enzyme with custom assertions and convenience functions for
 testing your React components, you can consider using:</p>
 <ul>
 <li><a href="https://github.com/producthunt/chai-enzyme" target="_blank"><code>chai-enzyme</code></a> with Mocha/Chai.</li>
@@ -2142,7 +2139,7 @@ describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Guides","level":"1.2","depth":1,"path":"docs/guides.md","ref":"docs/guides.md","articles":[{"title":"Migration from 2.x to 3.x","level":"1.2.1","depth":2,"path":"docs/guides/migration-from-2-to-3.md","ref":"docs/guides/migration-from-2-to-3.md","articles":[]},{"title":"Browserify","level":"1.2.2","depth":2,"path":"docs/guides/browserify.md","ref":"docs/guides/browserify.md","articles":[]},{"title":"WebPack","level":"1.2.3","depth":2,"path":"docs/guides/webpack.md","ref":"docs/guides/webpack.md","articles":[]},{"title":"JSDOM","level":"1.2.4","depth":2,"path":"docs/guides/jsdom.md","ref":"docs/guides/jsdom.md","articles":[]},{"title":"Jest","level":"1.2.5","depth":2,"path":"docs/guides/jest.md","ref":"docs/guides/jest.md","articles":[]},{"title":"Karma","level":"1.2.6","depth":2,"path":"docs/guides/karma.md","ref":"docs/guides/karma.md","articles":[]},{"title":"Mocha","level":"1.2.7","depth":2,"path":"docs/guides/mocha.md","ref":"docs/guides/mocha.md","articles":[]},{"title":"React Native","level":"1.2.8","depth":2,"path":"docs/guides/react-native.md","ref":"docs/guides/react-native.md","articles":[]},{"title":"Lab","level":"1.2.9","depth":2,"path":"docs/guides/lab.md","ref":"docs/guides/lab.md","articles":[]},{"title":"Tape and AVA","level":"1.2.10","depth":2,"path":"docs/guides/tape-ava.md","ref":"docs/guides/tape-ava.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-13T05:04:05.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T05:06:18.004Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Guides","level":"1.2","depth":1,"path":"docs/guides.md","ref":"docs/guides.md","articles":[{"title":"Migration from 2.x to 3.x","level":"1.2.1","depth":2,"path":"docs/guides/migration-from-2-to-3.md","ref":"docs/guides/migration-from-2-to-3.md","articles":[]},{"title":"Browserify","level":"1.2.2","depth":2,"path":"docs/guides/browserify.md","ref":"docs/guides/browserify.md","articles":[]},{"title":"WebPack","level":"1.2.3","depth":2,"path":"docs/guides/webpack.md","ref":"docs/guides/webpack.md","articles":[]},{"title":"JSDOM","level":"1.2.4","depth":2,"path":"docs/guides/jsdom.md","ref":"docs/guides/jsdom.md","articles":[]},{"title":"Jest","level":"1.2.5","depth":2,"path":"docs/guides/jest.md","ref":"docs/guides/jest.md","articles":[]},{"title":"Karma","level":"1.2.6","depth":2,"path":"docs/guides/karma.md","ref":"docs/guides/karma.md","articles":[]},{"title":"Mocha","level":"1.2.7","depth":2,"path":"docs/guides/mocha.md","ref":"docs/guides/mocha.md","articles":[]},{"title":"React Native","level":"1.2.8","depth":2,"path":"docs/guides/react-native.md","ref":"docs/guides/react-native.md","articles":[]},{"title":"Lab","level":"1.2.9","depth":2,"path":"docs/guides/lab.md","ref":"docs/guides/lab.md","articles":[]},{"title":"Tape and AVA","level":"1.2.10","depth":2,"path":"docs/guides/tape-ava.md","ref":"docs/guides/tape-ava.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-15T06:13:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T06:13:39.921Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
