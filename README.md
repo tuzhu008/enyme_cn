@@ -6,39 +6,30 @@ Enzyme
 [![npm Version](https://img.shields.io/npm/v/enzyme.svg)](https://www.npmjs.com/package/enzyme) [![License](https://img.shields.io/npm/l/enzyme.svg)](https://www.npmjs.com/package/enzyme) [![Build Status](https://travis-ci.org/airbnb/enzyme.svg)](https://travis-ci.org/airbnb/enzyme) [![Coverage Status](https://coveralls.io/repos/airbnb/enzyme/badge.svg?branch=master&service=github)](https://coveralls.io/github/airbnb/enzyme?branch=master)
 
 
-Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate,
-and traverse your React Components' output.
+Enzyme是一个用于React的JavaScript测试工具，它能更容易地断言，操作，并遍历您的React组件的输出。
 
-Enzyme's API is meant to be intuitive and flexible by mimicking jQuery's API for DOM manipulation
-and traversal.
+通过模仿jQuery的DOM操作和遍历API，Enzyme的API是直观和灵活的。
 
-Upgrading from Enzyme 2.x or React < 16
+从 Enzyme 2.x 或者 React < 16升级
 ===========
 
-Are you here to check whether or not Enzyme is compatible with React 16? Are you currently using
-Enzyme 2.x? Great! Check out our [migration guide](/docs/guides/migration-from-2-to-3.md) for help
-moving on to Enzyme v3 where React 16 is supported.
+你是否在这里检查Enzyme是否与React 16相兼容?你目前使用Enzyme 2.x?太棒了!请参阅我们的[迁移指南](/docs/guides/migration-from-2-to-3.md)寻求帮助来转到支持React 16的Enzyme v3。
 
-### [Installation](/docs/installation/README.md)
+### [安装](/docs/installation/README.md)
 
-To get started with enzyme, you can simply install it via npm. You will need to install enzyme
-along with an Adapter corresponding to the version of react (or other UI Component library) you
-are using. For instance, if you are using enzyme with React 16, you can run:
-
+你可以通过npm来简单地安装enzyme，并开始使用它。你还需要安装与当前你正在使用的React版本对应的enzyme适配器。例如，如果你使用的是React 16,你可以运行:
 ```bash
 npm i --save-dev enzyme enzyme-adapter-react-16
 ```
 
-Each adapter may have additional peer dependencies which you will need to install as well. For instance,
-`enzyme-adapter-react-16` has peer dependencies on `react`, `react-dom`, and `react-test-renderer`.
+每个适配器都可能有额外的对等依赖，您也需要安装这些依赖项。例如,`enzyme-adapter-react-16`对等依赖于`react`, `react-dom`, 和`react-test-renderer`。
 
-At the moment, Enzyme has adapters that provide compatibility with `React 16.x`, `React 15.x`,
-`React 0.14.x` and `React 0.13.x`.
+目前，Enzyme具有与以下几个版本的React兼容的适配器：`React 16.x`, `React 15.x`,
+`React 0.14.x` 和 `React 0.13.x`。
 
-The following adapters are officially provided by enzyme, and have the following compatibility with
-React:
+下面的适配器是由enzyme正式提供的，并且与React具有以下兼容性
 
-| Enzyme Adapter Package | React semver compatibility |
+| Enzyme 适配器包 | React 主版本兼容性 |
 | --- | --- |
 | `enzyme-adapter-react-16` | `^16.0.0` |
 | `enzyme-adapter-react-15` | `^15.5.0` |
@@ -46,8 +37,8 @@ React:
 | `enzyme-adapter-react-14` | `^0.14.0` |
 | `enzyme-adapter-react-13` | `^0.13.0` |
 
-Finally, you need to configure enzyme to use the adapter you want it to use. To do this, you can use
-the top level `configure(...)` API.
+
+最后，您需要配置enzyme来使用您希望它使用的适配器。要做到这一点，你可以使用顶级的`configure(...)`API。
 
 ```js
 import Enzyme from 'enzyme';
@@ -56,28 +47,26 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 ```
 
-3rd Party Adapters
+第三方适配器
 =============
 
-It is possible for the community to create additional (non-official) adapters that will make enzyme
-work with other libraries. If you have made one and it's not included in the list below, feel free
-to make a PR to this README and add a link to it! The known 3rd party adapters are:
+社区可以创建额外的(非正式的)适配器，从而使enzyme
+与其他库一起工作。如果你已经制作了一个并且没有包含在下面的列表中，请随意
+为这个README创建一个PR，并添加一个链接！已知的第三方适配器有:
 
 | Adapter Package | For Library | Status |
 | --- | --- | --- |
 | [`preact-enzyme-adapter`](https://github.com/aweary/preact-enzyme-adapater) | [`preact`](https://github.com/developit/preact) | (work in progress) |
 |[`enzyme-adapter-inferno`](https://github.com/bbc/enzyme-adapter-inferno)|[`inferno`](https://github.com/infernojs/inferno)|(work in progress)|
 
-Running Enzyme Tests
+运行 Enzyme 测试
 ===========
 
-Enzyme is unopinionated regarding which test runner or assertion library you use, and should be
-compatible with all major test runners and assertion libraries out there. The documentation and
-examples for enzyme use [mocha](https://mochajs.org/) and [chai](http://chaijs.com/), but you
-should be able to extrapolate to your framework of choice.
 
-If you are interested in using enzyme with custom assertions and convenience functions for
-testing your React components, you can consider using:
+对于您使用的测试运行器或断言库，Enzyme是不固执的，应该与所有主要的测试运行程序和断言库兼容。enzyme的文档和示例使用[mocha](https://mochajs.org/)和[chai](http://chaijs.com/)，但是您
+应该能够推断出你的选择框架。
+
+如果你对使用自定义断言和便利的函数的enzyme来测试您的反应组件感兴趣，您可以考虑使用:
 
 * [`chai-enzyme`](https://github.com/producthunt/chai-enzyme) with Mocha/Chai.
 * [`jasmine-enzyme`](https://github.com/blainekasten/enzyme-matchers/tree/master/packages/jasmine-enzyme) with Jasmine.
@@ -106,10 +95,10 @@ testing your React components, you can consider using:
 
 [Using Enzyme with Tape and AVA](/docs/guides/tape-ava.md)
 
-Basic Usage
+基本用法
 ===========
 
-## [Shallow Rendering](/docs/api/shallow.md)
+## [浅渲染](/docs/api/shallow.md)
 
 ```javascript
 import React from 'react';
@@ -149,11 +138,11 @@ describe('<MyComponent />', () => {
 });
 ```
 
-Read the full [API Documentation](/docs/api/shallow.md)
+阅读完整的 [API文档](/docs/api/shallow.md)
 
 
 
-## [Full DOM Rendering](/docs/api/mount.md)
+## [完整的DOM渲染](/docs/api/mount.md)
 
 ```javascript
 import React from 'react';
@@ -189,10 +178,10 @@ describe('<Foo />', () => {
 });
 ```
 
-Read the full [API Documentation](/docs/api/mount.md)
+阅读完整的 [API文档](/docs/api/mount.md)
 
 
-## [Static Rendered Markup](/docs/api/render.md)
+## [静态渲染标记](/docs/api/render.md)
 
 ```javascript
 import React from 'react';
@@ -214,21 +203,21 @@ describe('<Foo />', () => {
 });
 ```
 
-Read the full [API Documentation](/docs/api/render.md)
+阅读完整的 [API 文档](/docs/api/render.md)
 
 
-### Future
+### 特性
 
-[Enzyme Future](/docs/future.md)
+[Enzyme 特性](/docs/future.md)
 
 
-### Contributing
+### 贡献
 
-See the [Contributors Guide](/CONTRIBUTING.md)
+查看 [贡献指南](/CONTRIBUTING.md)
 
 ### In the wild
 
-Organizations and projects using `enzyme` can list themselves [here](INTHEWILD.md).
+使用`enzyme`的组织和项目可以在[这里](https://github.com/airbnb/enzyme/blob/master/INTHEWILD.md)列出。
 
 ### License
 
