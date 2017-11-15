@@ -1,6 +1,6 @@
 # Shallow Rendering API
 
-Shallow rendering is useful to constrain yourself to testing a component as a unit, and to ensure
+Shallow rendering(浅渲染) is useful to constrain yourself to testing a component as a unit, and to ensure
 that your tests aren't indirectly asserting on behavior of child components.
 
 ```jsx
