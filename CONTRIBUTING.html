@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Contributing Guide · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="docs/guides.html" />
     
+    <link rel="prev" href="docs/future.html" />
     
 
     </head>
@@ -89,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -1835,7 +1835,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="CONTRIBUTING.html">
+        <li class="chapter active" data-level="1.7" data-path="CONTRIBUTING.html">
             
                 <a href="CONTRIBUTING.html">
             
@@ -1878,7 +1878,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Contributing Guide</a>
     </h1>
 </div>
 
@@ -1893,216 +1893,107 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="enzyme">Enzyme</h1>
-<p><a href="https://gitter.im/airbnb/enzyme?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/airbnb/enzyme"></a></p>
-<p><a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/v/enzyme.svg" alt="npm Version"></a> <a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/l/enzyme.svg" alt="License"></a> <a href="https://travis-ci.org/airbnb/enzyme" target="_blank"><img src="https://travis-ci.org/airbnb/enzyme.svg" alt="Build Status"></a> <a href="https://coveralls.io/github/airbnb/enzyme?branch=master" target="_blank"><img src="https://coveralls.io/repos/airbnb/enzyme/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a></p>
-<p>Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate,
-and traverse your React Components&apos; output.</p>
-<p>Enzyme&apos;s API is meant to be intuitive and flexible by mimicking jQuery&apos;s API for DOM manipulation
-and traversal.</p>
-<h1 id="upgrading-from-enzyme-2x-or-react--16">Upgrading from Enzyme 2.x or React &lt; 16</h1>
-<p>Are you here to check whether or not Enzyme is compatible with React 16? Are you currently using
-Enzyme 2.x? Great! Check out our <a href="docs/guides/migration-from-2-to-3.html">migration guide</a> for help
-moving on to Enzyme v3 where React 16 is supported.</p>
-<h3 id="installation"><a href="docs/installation/">Installation</a></h3>
-<p>To get started with enzyme, you can simply install it via npm. You will need to install enzyme
-along with an Adapter corresponding to the version of react (or other UI Component library) you
-are using. For instance, if you are using enzyme with React 16, you can run:</p>
-<pre><code class="lang-bash">npm i --save-dev enzyme enzyme-adapter-react-16
+                                <h1 id="contributing-guide">Contributing Guide</h1>
+<p>Contributions are welcome and are greatly appreciated! Every little bit helps, and credit will
+always be given.</p>
+<h2 id="setting-up-your-environment">Setting up your environment</h2>
+<p>After forking enzyme to your own github org, do the following steps to get started:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># clone your fork to your local machine</span>
+git <span class="hljs-built_in">clone</span> https://github.com/airbnb/enzyme.git
+
+<span class="hljs-comment"># step into local repo</span>
+<span class="hljs-built_in">cd</span> enzyme
+
+<span class="hljs-comment"># install dependencies (use react:13 if you want to use React 0.13)</span>
+npm install &amp;&amp; npm run react:14
 </code></pre>
-<p>Each adapter may have additional peer dependencies which you will need to install as well. For instance,
-<code>enzyme-adapter-react-16</code> has peer dependencies on <code>react</code>, <code>react-dom</code>, and <code>react-test-renderer</code>.</p>
-<p>At the moment, Enzyme has adapters that provide compatibility with <code>React 16.x</code>, <code>React 15.x</code>,
-<code>React 0.14.x</code> and <code>React 0.13.x</code>.</p>
-<p>The following adapters are officially provided by enzyme, and have the following compatibility with
-React:</p>
-<table>
-<thead>
-<tr>
-<th>Enzyme Adapter Package</th>
-<th>React semver compatibility</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enzyme-adapter-react-16</code></td>
-<td><code>^16.0.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-15</code></td>
-<td><code>^15.5.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-15.4</code></td>
-<td><code>15.0.0-0 - 15.4.x</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-14</code></td>
-<td><code>^0.14.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-13</code></td>
-<td><code>^0.13.0</code></td>
-</tr>
-</tbody>
-</table>
-<p>Finally, you need to configure enzyme to use the adapter you want it to use. To do this, you can use
-the top level <code>configure(...)</code> API.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> Enzyme <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-<span class="hljs-keyword">import</span> Adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme-adapter-react-16&apos;</span>;
-
-Enzyme.configure({ adapter: <span class="hljs-keyword">new</span> Adapter() });
+<h3 id="switching-between-react-15-react-014-and-react-013">Switching between React 15, React 0.14 and React 0.13</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># switch to React 0.13</span>
+npm run react:13
 </code></pre>
-<h1 id="3rd-party-adapters">3rd Party Adapters</h1>
-<p>It is possible for the community to create additional (non-official) adapters that will make enzyme
-work with other libraries. If you have made one and it&apos;s not included in the list below, feel free
-to make a PR to this README and add a link to it! The known 3rd party adapters are:</p>
-<table>
-<thead>
-<tr>
-<th>Adapter Package</th>
-<th>For Library</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/aweary/preact-enzyme-adapater" target="_blank"><code>preact-enzyme-adapter</code></a></td>
-<td><a href="https://github.com/developit/preact" target="_blank"><code>preact</code></a></td>
-<td>(work in progress)</td>
-</tr>
-<tr>
-<td><a href="https://github.com/bbc/enzyme-adapter-inferno" target="_blank"><code>enzyme-adapter-inferno</code></a></td>
-<td><a href="https://github.com/infernojs/inferno" target="_blank"><code>inferno</code></a></td>
-<td>(work in progress)</td>
-</tr>
-</tbody>
-</table>
-<h1 id="running-enzyme-tests">Running Enzyme Tests</h1>
-<p>Enzyme is unopinionated regarding which test runner or assertion library you use, and should be
-compatible with all major test runners and assertion libraries out there. The documentation and
-examples for enzyme use <a href="https://mochajs.org/" target="_blank">mocha</a> and <a href="http://chaijs.com/" target="_blank">chai</a>, but you
-should be able to extrapolate to your framework of choice.</p>
-<p>If you are interested in using enzyme with custom assertions and convenience functions for
-testing your React components, you can consider using:</p>
-<ul>
-<li><a href="https://github.com/producthunt/chai-enzyme" target="_blank"><code>chai-enzyme</code></a> with Mocha/Chai.</li>
-<li><a href="https://github.com/blainekasten/enzyme-matchers/tree/master/packages/jasmine-enzyme" target="_blank"><code>jasmine-enzyme</code></a> with Jasmine.</li>
-<li><a href="https://github.com/blainekasten/enzyme-matchers/tree/master/packages/jest-enzyme" target="_blank"><code>jest-enzyme</code></a> with Jest.</li>
-<li><a href="https://github.com/rkotze/should-enzyme" target="_blank"><code>should-enzyme</code></a> for should.js.</li>
-<li><a href="https://github.com/PsychoLlama/expect-enzyme" target="_blank"><code>expect-enzyme</code></a> for expect.</li>
-</ul>
-<p><a href="docs/guides/mocha.html">Using Enzyme with Mocha</a></p>
-<p><a href="docs/guides/karma.html">Using Enzyme with Karma</a></p>
-<p><a href="docs/guides/browserify.html">Using Enzyme with Browserify</a></p>
-<p><a href="docs/guides/systemjs.md">Using Enzyme with SystemJS</a></p>
-<p><a href="docs/guides/webpack.html">Using Enzyme with WebPack</a></p>
-<p><a href="docs/guides/jsdom.html">Using Enzyme with JSDOM</a></p>
-<p><a href="docs/guides/react-native.html">Using Enzyme with React Native</a></p>
-<p><a href="docs/guides/jest.html">Using Enzyme with Jest</a></p>
-<p><a href="docs/guides/lab.html">Using Enzyme with Lab</a></p>
-<p><a href="docs/guides/tape-ava.html">Using Enzyme with Tape and AVA</a></p>
-<h1 id="basic-usage">Basic Usage</h1>
-<h2 id="shallow-rendering"><a href="docs/api/shallow.html">Shallow Rendering</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { shallow } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-<span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;sinon&apos;</span>;
-
-<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./MyComponent&apos;</span>;
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;MyComponent /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;renders three &lt;Foo /&gt; components&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = shallow(&lt;MyComponent /&gt;);
-    expect(wrapper.find(Foo)).to.have.length(3);
-  });
-
-  it(&apos;renders an `.icon-star`&apos;, () =&gt; {
-    const wrapper = shallow(&lt;MyComponent /&gt;);
-    expect(wrapper.find(&apos;.icon-star&apos;)).to.have.length(1);
-  });
-
-  it(&apos;renders children when passed in&apos;, () =&gt; {
-    const wrapper = shallow((
-      &lt;MyComponent&gt;
-        &lt;div className=&quot;unique&quot; /&gt;
-      &lt;/MyComponent&gt;
-    ));
-    expect(wrapper.contains(&lt;div className=&quot;unique&quot; /&gt;)).to.equal(true);
-  });
-
-  it(&apos;simulates click events&apos;, () =&gt; {
-    const onButtonClick = sinon.spy();
-    const wrapper = shallow(&lt;Foo onButtonClick={onButtonClick} /&gt;);
-    wrapper.find(&apos;button&apos;).simulate(&apos;click&apos;);
-    expect(onButtonClick).to.have.property(&apos;callCount&apos;, 1);
-  });
-});
+<pre><code class="lang-bash"><span class="hljs-comment"># switch to React 0.14</span>
+npm run react:14
 </code></pre>
-<p>Read the full <a href="docs/api/shallow.html">API Documentation</a></p>
-<h2 id="full-dom-rendering"><a href="docs/api/mount.html">Full DOM Rendering</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;sinon&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { mount } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;allows us to set props&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = mount(&lt;Foo bar=&quot;baz&quot; /&gt;);
-    expect(wrapper.props().bar).to.equal(&apos;baz&apos;);
-    wrapper.setProps({ bar: &apos;foo&apos; });
-    expect(wrapper.props().bar).to.equal(&apos;foo&apos;);
-  });
-
-  it(&apos;simulates click events&apos;, () =&gt; {
-    const onButtonClick = sinon.spy();
-    const wrapper = mount((
-      &lt;Foo onButtonClick={onButtonClick} /&gt;
-    ));
-    wrapper.find(&apos;button&apos;).simulate(&apos;click&apos;);
-    expect(onButtonClick).to.have.property(&apos;callCount&apos;, 1);
-  });
-
-  it(&apos;calls componentDidMount&apos;, () =&gt; {
-    sinon.spy(Foo.prototype, &apos;componentDidMount&apos;);
-    const wrapper = mount(&lt;Foo /&gt;);
-    expect(Foo.prototype.componentDidMount).to.have.property(&apos;callCount&apos;, 1);
-    Foo.prototype.componentDidMount.restore();
-  });
-});
+<pre><code class="lang-bash"><span class="hljs-comment"># switch to React 15</span>
+npm run react:15
 </code></pre>
-<p>Read the full <a href="docs/api/mount.html">API Documentation</a></p>
-<h2 id="static-rendered-markup"><a href="docs/api/render.html">Static Rendered Markup</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { render } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;renders three `.foo-bar`s&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = render(&lt;Foo /&gt;);
-    expect(wrapper.find(&apos;.foo-bar&apos;).length).to.equal(3);
-  });
-
-  it(&apos;renders the title&apos;, () =&gt; {
-    const wrapper = render(&lt;Foo title=&quot;unique&quot; /&gt;);
-    expect(wrapper.text()).to.contain(&apos;unique&apos;);
-  });
-});
+<pre><code class="lang-bash"><span class="hljs-comment"># switch to React 16</span>
+npm run react:16
 </code></pre>
-<p>Read the full <a href="docs/api/render.html">API Documentation</a></p>
-<h3 id="future">Future</h3>
-<p><a href="docs/future.html">Enzyme Future</a></p>
-<h3 id="contributing">Contributing</h3>
-<p>See the <a href="CONTRIBUTING.html">Contributors Guide</a></p>
-<h3 id="in-the-wild">In the wild</h3>
-<p>Organizations and projects using <code>enzyme</code> can list themselves <a href="INTHEWILD.md">here</a>.</p>
-<h3 id="license">License</h3>
-<p><a href="LICENSE.md">MIT</a></p>
+<h3 id="running-tests">Running Tests</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># run tests on whatever version of React is currently installed</span>
+npm <span class="hljs-built_in">test</span>
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-comment"># run tests on all supported versions of React</span>
+npm run <span class="hljs-built_in">test</span>:all
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-comment"># faster feedback for TDD</span>
+npm run <span class="hljs-built_in">test</span>:watch
+</code></pre>
+<h3 id="style--linting">Style &amp; Linting</h3>
+<p>This codebase adheres to the <a href="https://github.com/airbnb/javascript" target="_blank">Airbnb Styleguide</a> and is
+enforced using <a href="http://eslint.org/" target="_blank">ESLint</a>.</p>
+<p>It is recommended that you install an eslint plugin for your editor of choice when working on this
+codebase, however you can always check to see if the source code is compliant by running:</p>
+<pre><code class="lang-bash">npm run lint
+</code></pre>
+<h3 id="publishing">Publishing</h3>
+<p>Enzyme uses <a href="https://github.com/lerna/lerna" target="_blank">lerna</a> to structure its repo, and has multiple packages
+to publish out of this one repo. We use lerna&apos;s &quot;independent&quot; mode, which means that the versioning
+of each package in the repo is versioned independently.</p>
+<p>We are waiting on <a href="https://github.com/lerna/lerna/issues/955" target="_blank">this issue</a> to be fixed, so that
+<code>peerDependencies</code> do not get updated with patch updates.</p>
+<p>Until this issue is fixed, we will publish each package manually instead of with <code>lerna publish</code>. In
+order to do this, we will:</p>
+<p>For enzyme:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ... update version in enzyme/package.json, make changes to CHANGELOG, etc.</span>
+<span class="hljs-built_in">cd</span> packages/enzyme
+git commit -m v{version}
+git tag <span class="hljs-_">-a</span> -m v{version}
+git push --follow-tags
+npm publish
+</code></pre>
+<p>For other packages</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ... update version in {package}/package.json, make changes to CHANGELOG, etc.</span>
+<span class="hljs-built_in">cd</span> packages/{package}
+git commit -m <span class="hljs-string">&quot;{package}: v{version}&quot;</span>
+git tag <span class="hljs-_">-a</span> -m <span class="hljs-string">&quot;{package}: v{version}&quot;</span>
+git push --follow-tags
+npm publish
+</code></pre>
+<p>Once we are able to use <code>lerna publish</code>, the process will be as follows:</p>
+<p>Lerna by default will only publish packages that have changed since the last release. It will also
+create a tagged commit for each release.</p>
+<p>To publish, run:</p>
+<pre><code class="lang-bash">lerna publish -m <span class="hljs-string">&quot;{tag name}&quot;</span>
+</code></pre>
+<p>The tag name is determined by the <code>-m</code> CLI option. If <code>enzyme</code> is one of the packages that has
+updates, we default to just using that version as the tag name. For instance, when publishing
+<code>enzyme@3.1.1</code> and <code>enzyme-adapter-react-16@1.2.3</code> we would run:</p>
+<pre><code class="lang-bash">lerna publish -m <span class="hljs-string">&quot;v3.1.1&quot;</span>
+</code></pre>
+<p>If <code>enzyme</code> is <em>not</em> one of the packages being updated, use the other package&apos;s name and the version:</p>
+<pre><code class="lang-bash">lerna publish -m <span class="hljs-string">&quot;enzyme-adapter-react-16: v1.2.3&quot;</span>
+</code></pre>
+<p>The <code>lerna publish</code> command will present interactive prompts asking which version to use for each
+package independently. Just choose whichever</p>
+<h3 id="building-docs">Building Docs</h3>
+<p>Building the docs locally is extremely simple. First execute the following command:</p>
+<pre><code class="lang-bash">npm run docs:watch
+</code></pre>
+<p>After this, you can open up your browser to the specified port (usually <a href="http://localhost:4000" target="_blank">http://localhost:4000</a> )</p>
+<p>The browser will automatically refresh when there are changes to any of the source files.</p>
+<h2 id="pull-request-guidelines">Pull Request Guidelines</h2>
+<p>Before you submit a pull request from your forked repo, check that it meets these guidelines:</p>
+<ol>
+<li>If the pull request fixes a bug, it should include tests that fail without the changes, and pass
+with them.</li>
+<li>If the pull request adds functionality, the docs should be updated as part of the same PR.</li>
+<li>The pull request should work for React 15, React 0.14 and React 0.13. The CI server should run the
+tests in all versions automatically when you push the PR, but if you&apos;d like to check locally, you
+can do so (see above).</li>
+<li>Please rebase and resolve all conflicts before submitting.</li>
+</ol>
 
                                 
                                 </section>
@@ -2130,10 +2021,10 @@ describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
 
             
                 
-                
-                <a href="docs/guides.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Guides">
-                    <i class="fa fa-angle-right"></i>
+                <a href="docs/future.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Future">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -2142,7 +2033,7 @@ describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Guides","level":"1.2","depth":1,"path":"docs/guides.md","ref":"docs/guides.md","articles":[{"title":"Migration from 2.x to 3.x","level":"1.2.1","depth":2,"path":"docs/guides/migration-from-2-to-3.md","ref":"docs/guides/migration-from-2-to-3.md","articles":[]},{"title":"Browserify","level":"1.2.2","depth":2,"path":"docs/guides/browserify.md","ref":"docs/guides/browserify.md","articles":[]},{"title":"WebPack","level":"1.2.3","depth":2,"path":"docs/guides/webpack.md","ref":"docs/guides/webpack.md","articles":[]},{"title":"JSDOM","level":"1.2.4","depth":2,"path":"docs/guides/jsdom.md","ref":"docs/guides/jsdom.md","articles":[]},{"title":"Jest","level":"1.2.5","depth":2,"path":"docs/guides/jest.md","ref":"docs/guides/jest.md","articles":[]},{"title":"Karma","level":"1.2.6","depth":2,"path":"docs/guides/karma.md","ref":"docs/guides/karma.md","articles":[]},{"title":"Mocha","level":"1.2.7","depth":2,"path":"docs/guides/mocha.md","ref":"docs/guides/mocha.md","articles":[]},{"title":"React Native","level":"1.2.8","depth":2,"path":"docs/guides/react-native.md","ref":"docs/guides/react-native.md","articles":[]},{"title":"Lab","level":"1.2.9","depth":2,"path":"docs/guides/lab.md","ref":"docs/guides/lab.md","articles":[]},{"title":"Tape and AVA","level":"1.2.10","depth":2,"path":"docs/guides/tape-ava.md","ref":"docs/guides/tape-ava.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-13T05:04:05.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T05:06:18.004Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Contributing Guide","level":"1.7","depth":1,"previous":{"title":"Future","level":"1.6","depth":1,"path":"docs/future.md","ref":"docs/future.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"CONTRIBUTING.md","mtime":"2017-11-11T01:50:06.598Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T05:06:18.004Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

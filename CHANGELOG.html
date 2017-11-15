@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Change Log · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="docs/guides.html" />
+    <link rel="next" href="docs/future.html" />
     
+    
+    <link rel="prev" href="docs/api/selector.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -1809,7 +1811,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="CHANGELOG.html">
+        <li class="chapter active" data-level="1.5" data-path="CHANGELOG.html">
             
                 <a href="CHANGELOG.html">
             
@@ -1878,7 +1880,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Change Log</a>
     </h1>
 </div>
 
@@ -1893,216 +1895,470 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="enzyme">Enzyme</h1>
-<p><a href="https://gitter.im/airbnb/enzyme?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/airbnb/enzyme"></a></p>
-<p><a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/v/enzyme.svg" alt="npm Version"></a> <a href="https://www.npmjs.com/package/enzyme" target="_blank"><img src="https://img.shields.io/npm/l/enzyme.svg" alt="License"></a> <a href="https://travis-ci.org/airbnb/enzyme" target="_blank"><img src="https://travis-ci.org/airbnb/enzyme.svg" alt="Build Status"></a> <a href="https://coveralls.io/github/airbnb/enzyme?branch=master" target="_blank"><img src="https://coveralls.io/repos/airbnb/enzyme/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a></p>
-<p>Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate,
-and traverse your React Components&apos; output.</p>
-<p>Enzyme&apos;s API is meant to be intuitive and flexible by mimicking jQuery&apos;s API for DOM manipulation
-and traversal.</p>
-<h1 id="upgrading-from-enzyme-2x-or-react--16">Upgrading from Enzyme 2.x or React &lt; 16</h1>
-<p>Are you here to check whether or not Enzyme is compatible with React 16? Are you currently using
-Enzyme 2.x? Great! Check out our <a href="docs/guides/migration-from-2-to-3.html">migration guide</a> for help
-moving on to Enzyme v3 where React 16 is supported.</p>
-<h3 id="installation"><a href="docs/installation/">Installation</a></h3>
-<p>To get started with enzyme, you can simply install it via npm. You will need to install enzyme
-along with an Adapter corresponding to the version of react (or other UI Component library) you
-are using. For instance, if you are using enzyme with React 16, you can run:</p>
-<pre><code class="lang-bash">npm i --save-dev enzyme enzyme-adapter-react-16
-</code></pre>
-<p>Each adapter may have additional peer dependencies which you will need to install as well. For instance,
-<code>enzyme-adapter-react-16</code> has peer dependencies on <code>react</code>, <code>react-dom</code>, and <code>react-test-renderer</code>.</p>
-<p>At the moment, Enzyme has adapters that provide compatibility with <code>React 16.x</code>, <code>React 15.x</code>,
-<code>React 0.14.x</code> and <code>React 0.13.x</code>.</p>
-<p>The following adapters are officially provided by enzyme, and have the following compatibility with
-React:</p>
-<table>
-<thead>
-<tr>
-<th>Enzyme Adapter Package</th>
-<th>React semver compatibility</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enzyme-adapter-react-16</code></td>
-<td><code>^16.0.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-15</code></td>
-<td><code>^15.5.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-15.4</code></td>
-<td><code>15.0.0-0 - 15.4.x</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-14</code></td>
-<td><code>^0.14.0</code></td>
-</tr>
-<tr>
-<td><code>enzyme-adapter-react-13</code></td>
-<td><code>^0.13.0</code></td>
-</tr>
-</tbody>
-</table>
-<p>Finally, you need to configure enzyme to use the adapter you want it to use. To do this, you can use
-the top level <code>configure(...)</code> API.</p>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> Enzyme <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-<span class="hljs-keyword">import</span> Adapter <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme-adapter-react-16&apos;</span>;
-
-Enzyme.configure({ adapter: <span class="hljs-keyword">new</span> Adapter() });
-</code></pre>
-<h1 id="3rd-party-adapters">3rd Party Adapters</h1>
-<p>It is possible for the community to create additional (non-official) adapters that will make enzyme
-work with other libraries. If you have made one and it&apos;s not included in the list below, feel free
-to make a PR to this README and add a link to it! The known 3rd party adapters are:</p>
-<table>
-<thead>
-<tr>
-<th>Adapter Package</th>
-<th>For Library</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/aweary/preact-enzyme-adapater" target="_blank"><code>preact-enzyme-adapter</code></a></td>
-<td><a href="https://github.com/developit/preact" target="_blank"><code>preact</code></a></td>
-<td>(work in progress)</td>
-</tr>
-<tr>
-<td><a href="https://github.com/bbc/enzyme-adapter-inferno" target="_blank"><code>enzyme-adapter-inferno</code></a></td>
-<td><a href="https://github.com/infernojs/inferno" target="_blank"><code>inferno</code></a></td>
-<td>(work in progress)</td>
-</tr>
-</tbody>
-</table>
-<h1 id="running-enzyme-tests">Running Enzyme Tests</h1>
-<p>Enzyme is unopinionated regarding which test runner or assertion library you use, and should be
-compatible with all major test runners and assertion libraries out there. The documentation and
-examples for enzyme use <a href="https://mochajs.org/" target="_blank">mocha</a> and <a href="http://chaijs.com/" target="_blank">chai</a>, but you
-should be able to extrapolate to your framework of choice.</p>
-<p>If you are interested in using enzyme with custom assertions and convenience functions for
-testing your React components, you can consider using:</p>
+                                <h1 id="change-log">Change Log</h1>
+<h2 id="311">3.1.1</h2>
+<h3 id="fixes">Fixes</h3>
 <ul>
-<li><a href="https://github.com/producthunt/chai-enzyme" target="_blank"><code>chai-enzyme</code></a> with Mocha/Chai.</li>
-<li><a href="https://github.com/blainekasten/enzyme-matchers/tree/master/packages/jasmine-enzyme" target="_blank"><code>jasmine-enzyme</code></a> with Jasmine.</li>
-<li><a href="https://github.com/blainekasten/enzyme-matchers/tree/master/packages/jest-enzyme" target="_blank"><code>jest-enzyme</code></a> with Jest.</li>
-<li><a href="https://github.com/rkotze/should-enzyme" target="_blank"><code>should-enzyme</code></a> for should.js.</li>
-<li><a href="https://github.com/PsychoLlama/expect-enzyme" target="_blank"><code>expect-enzyme</code></a> for expect.</li>
+<li>@koba04: Fix to call componentDidUpdate on setState of React v16 (<a href="https://github.com/airbnb/enzyme/pull/1261" target="_blank">#1261</a>)</li>
 </ul>
-<p><a href="docs/guides/mocha.html">Using Enzyme with Mocha</a></p>
-<p><a href="docs/guides/karma.html">Using Enzyme with Karma</a></p>
-<p><a href="docs/guides/browserify.html">Using Enzyme with Browserify</a></p>
-<p><a href="docs/guides/systemjs.md">Using Enzyme with SystemJS</a></p>
-<p><a href="docs/guides/webpack.html">Using Enzyme with WebPack</a></p>
-<p><a href="docs/guides/jsdom.html">Using Enzyme with JSDOM</a></p>
-<p><a href="docs/guides/react-native.html">Using Enzyme with React Native</a></p>
-<p><a href="docs/guides/jest.html">Using Enzyme with Jest</a></p>
-<p><a href="docs/guides/lab.html">Using Enzyme with Lab</a></p>
-<p><a href="docs/guides/tape-ava.html">Using Enzyme with Tape and AVA</a></p>
-<h1 id="basic-usage">Basic Usage</h1>
-<h2 id="shallow-rendering"><a href="docs/api/shallow.html">Shallow Rendering</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { shallow } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-<span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;sinon&apos;</span>;
-
-<span class="hljs-keyword">import</span> MyComponent <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./MyComponent&apos;</span>;
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;MyComponent /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;renders three &lt;Foo /&gt; components&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = shallow(&lt;MyComponent /&gt;);
-    expect(wrapper.find(Foo)).to.have.length(3);
-  });
-
-  it(&apos;renders an `.icon-star`&apos;, () =&gt; {
-    const wrapper = shallow(&lt;MyComponent /&gt;);
-    expect(wrapper.find(&apos;.icon-star&apos;)).to.have.length(1);
-  });
-
-  it(&apos;renders children when passed in&apos;, () =&gt; {
-    const wrapper = shallow((
-      &lt;MyComponent&gt;
-        &lt;div className=&quot;unique&quot; /&gt;
-      &lt;/MyComponent&gt;
-    ));
-    expect(wrapper.contains(&lt;div className=&quot;unique&quot; /&gt;)).to.equal(true);
-  });
-
-  it(&apos;simulates click events&apos;, () =&gt; {
-    const onButtonClick = sinon.spy();
-    const wrapper = shallow(&lt;Foo onButtonClick={onButtonClick} /&gt;);
-    wrapper.find(&apos;button&apos;).simulate(&apos;click&apos;);
-    expect(onButtonClick).to.have.property(&apos;callCount&apos;, 1);
-  });
-});
-</code></pre>
-<p>Read the full <a href="docs/api/shallow.html">API Documentation</a></p>
-<h2 id="full-dom-rendering"><a href="docs/api/mount.html">Full DOM Rendering</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> sinon <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;sinon&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { mount } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;allows us to set props&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = mount(&lt;Foo bar=&quot;baz&quot; /&gt;);
-    expect(wrapper.props().bar).to.equal(&apos;baz&apos;);
-    wrapper.setProps({ bar: &apos;foo&apos; });
-    expect(wrapper.props().bar).to.equal(&apos;foo&apos;);
-  });
-
-  it(&apos;simulates click events&apos;, () =&gt; {
-    const onButtonClick = sinon.spy();
-    const wrapper = mount((
-      &lt;Foo onButtonClick={onButtonClick} /&gt;
-    ));
-    wrapper.find(&apos;button&apos;).simulate(&apos;click&apos;);
-    expect(onButtonClick).to.have.property(&apos;callCount&apos;, 1);
-  });
-
-  it(&apos;calls componentDidMount&apos;, () =&gt; {
-    sinon.spy(Foo.prototype, &apos;componentDidMount&apos;);
-    const wrapper = mount(&lt;Foo /&gt;);
-    expect(Foo.prototype.componentDidMount).to.have.property(&apos;callCount&apos;, 1);
-    Foo.prototype.componentDidMount.restore();
-  });
-});
-</code></pre>
-<p>Read the full <a href="docs/api/mount.html">API Documentation</a></p>
-<h2 id="static-rendered-markup"><a href="docs/api/render.html">Static Rendered Markup</a></h2>
-<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>;
-<span class="hljs-keyword">import</span> { expect } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;chai&apos;</span>;
-<span class="hljs-keyword">import</span> { render } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;enzyme&apos;</span>;
-
-<span class="hljs-keyword">import</span> Foo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./Foo&apos;</span>;
-
-describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
-  it(<span class="hljs-string">&apos;renders three `.foo-bar`s&apos;</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> wrapper = render(&lt;Foo /&gt;);
-    expect(wrapper.find(&apos;.foo-bar&apos;).length).to.equal(3);
-  });
-
-  it(&apos;renders the title&apos;, () =&gt; {
-    const wrapper = render(&lt;Foo title=&quot;unique&quot; /&gt;);
-    expect(wrapper.text()).to.contain(&apos;unique&apos;);
-  });
-});
-</code></pre>
-<p>Read the full <a href="docs/api/render.html">API Documentation</a></p>
-<h3 id="future">Future</h3>
-<p><a href="docs/future.html">Enzyme Future</a></p>
-<h3 id="contributing">Contributing</h3>
-<p>See the <a href="CONTRIBUTING.html">Contributors Guide</a></p>
-<h3 id="in-the-wild">In the wild</h3>
-<p>Organizations and projects using <code>enzyme</code> can list themselves <a href="INTHEWILD.md">here</a>.</p>
-<h3 id="license">License</h3>
-<p><a href="LICENSE.md">MIT</a></p>
+<h2 id="310">3.1.0</h2>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li>@FezVrasta: Added hostNodes method to ReactWrapper (<a href="https://github.com/airbnb/enzyme/pull/1179" target="_blank">#1179</a>)</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li><p>@lelandrichardson: Add an npmignore file to all packages (<a href="https://github.com/airbnb/enzyme/pull/1204" target="_blank">#1204</a>)</p>
+</li>
+<li><p>@neoziro: Fix node resolving in React 16 adapter (<a href="https://github.com/airbnb/enzyme/pull/100" target="_blank">#100</a>)</p>
+</li>
+<li><p>@graingert: upgrade to rst-selector-parser@^2.2.2 (<a href="https://github.com/airbnb/enzyme/pull/1146" target="_blank">#1146</a>)</p>
+</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><p>@lelandrichardson: Symlink readme to all packages (<a href="https://github.com/airbnb/enzyme/pull/1205" target="_blank">#1205</a>)</p>
+</li>
+<li><p>@AndersDJohnson: fix some typos (<a href="https://github.com/airbnb/enzyme/pull/1165" target="_blank">#1165</a>)</p>
+</li>
+<li><p>@dubbha: ES5 setup file correction (<a href="https://github.com/airbnb/enzyme/pull/1194" target="_blank">#1194</a>)</p>
+</li>
+<li><p>@morrowr08: updated component name being used in example (<a href="https://github.com/airbnb/enzyme/pull/1180" target="_blank">#1180</a>)</p>
+</li>
+<li><p>@apandichi: Fixing a few typos... (<a href="https://github.com/airbnb/enzyme/pull/1171" target="_blank">#1171</a>)</p>
+</li>
+<li><p>@nuc: Fix typo (<a href="https://github.com/airbnb/enzyme/pull/1142" target="_blank">#1142</a>)</p>
+</li>
+</ul>
+<h2 id="300">3.0.0</h2>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<p>Enzyme has several breaking changes from v2 to v3. Please check out our <a href="docs/guides/migration-from-2-to-3.html">migration guide</a> for more info. Since there was a rewrite of the core
+library from v2 to v3, it is hard to categorize changes in terms of sem</p>
+<ul>
+<li><p>@lelandrichardson: Refactor enzyme to use Adapters, initial React 16 support (<a href="https://github.com/airbnb/enzyme/pull/1007" target="_blank">#1007</a>)</p>
+</li>
+<li><p>@lelandrichardson: Make private properties more private and harder to use (<a href="https://github.com/airbnb/enzyme/pull/1083" target="_blank">#1083</a>)</p>
+</li>
+<li><p>@ljharb: [breaking] update <code>cheerio</code> to v1 (<a href="https://github.com/airbnb/enzyme/pull/1093" target="_blank">#1093</a>)</p>
+</li>
+<li><p>@aweary: Integrate with a CSS parser for selector parsing (<a href="https://github.com/airbnb/enzyme/pull/1086" target="_blank">#1086</a>)</p>
+</li>
+<li><p>@vadimdemedes: Skip undefined props when comparing nodes (<a href="https://github.com/airbnb/enzyme/pull/662" target="_blank">#662</a>)</p>
+</li>
+<li><p>@koba04: Breaking: lifecycleExperimental by default (<a href="https://github.com/airbnb/enzyme/pull/1140" target="_blank">#1140</a>)</p>
+</li>
+</ul>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li><p>@lelandrichardson: Move to lerna repo structure, multiple modules (<a href="https://github.com/airbnb/enzyme/pull/1074" target="_blank">#1074</a>)</p>
+</li>
+<li><p>@lelandrichardson: Remove all React dependencies from enzyme (<a href="https://github.com/airbnb/enzyme/pull/1084" target="_blank">#1084</a>)</p>
+</li>
+<li><p>@lelandrichardson: Add public root method (<a href="https://github.com/airbnb/enzyme/pull/1127" target="_blank">#1127</a>)</p>
+</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li><p>@aweary: Remove isFunctionalComponent, use nodeType instead (<a href="https://github.com/airbnb/enzyme/pull/1076" target="_blank">#1076</a>)</p>
+</li>
+<li><p>@LarsHassler: props not merged when shallow rendering in lifecycleExperimental (<a href="https://github.com/airbnb/enzyme/pull/1088" target="_blank">#1088</a>)</p>
+</li>
+<li><p>@ljharb: [Fix] <code>mount</code>: do not mutate <code>Component.contextTypes</code> (<a href="https://github.com/airbnb/enzyme/pull/1099" target="_blank">#1099</a>)</p>
+</li>
+<li><p>@ljharb: [Fix] <code>reduce</code>/<code>reduceRight</code>: follow <code>Array#reduce</code> when omitting initialValue (<a href="https://github.com/airbnb/enzyme/pull/673" target="_blank">#673</a>)</p>
+</li>
+<li><p>@koba04: Fix componentDidUpdate when updating by setState on v16 (<a href="https://github.com/airbnb/enzyme/pull/1133" target="_blank">#1133</a>)</p>
+</li>
+<li><p>@koba04: Fix componentDidUpdate no longer receives prevContext on React v16 (<a href="https://github.com/airbnb/enzyme/pull/1139" target="_blank">#1139</a>)</p>
+</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li><p>@ghost: added sinon to mocha guide (<a href="https://github.com/airbnb/enzyme/pull/1075" target="_blank">#1075</a>)</p>
+</li>
+<li><p>@samit4me: Update to GitBook 3 (<a href="https://github.com/airbnb/enzyme/pull/1039" target="_blank">#1039</a>)</p>
+</li>
+<li><p>@therewillbecode: Removed extraneous brackets from example in readme (<a href="https://github.com/airbnb/enzyme/pull/1117" target="_blank">#1117</a>)</p>
+</li>
+<li><p>@silvenon: Add note that mount() requires cleanup (<a href="https://github.com/airbnb/enzyme/pull/1043" target="_blank">#1043</a>)</p>
+</li>
+<li><p>@lelandrichardson: Add docs reflecting v3 (<a href="https://github.com/airbnb/enzyme/pull/1121" target="_blank">#1121</a>)</p>
+</li>
+</ul>
+<h2 id="291">2.9.1</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>[Deps] Require uuid at least 3.0.1 (<a href="https://github.com/airbnb/enzyme/pull/1001" target="_blank">#1001</a>)</li>
+</ul>
+<h2 id="290">2.9.0</h2>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li><code>mount</code>/<code>shallow</code>: <code>debug</code>: add <code>ignoreProps</code> option (<a href="https://github.com/airbnb/enzyme/pull/960" target="_blank">#960</a>)</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li><code>shallow</code>: debug: fix indentation (<a href="https://github.com/airbnb/enzyme/pull/926" target="_blank">#926</a>)</li>
+<li>react-compat: Make sure dependency error reporting always work (<a href="https://github.com/airbnb/enzyme/pull/929" target="_blank">#929</a>)</li>
+<li>react-compat: correct error message (<a href="https://github.com/airbnb/enzyme/pull/904" target="_blank">#904</a>)</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>lint our markdown (<a href="https://github.com/airbnb/enzyme/pull/988" target="_blank">#988</a>)</li>
+<li>correct <code>nvm</code> install instructions (never install it with homebrew) (<a href="https://github.com/airbnb/enzyme/pull/988" target="_blank">#988</a>)</li>
+<li>fix typos (<a href="https://github.com/airbnb/enzyme/pull/979" target="_blank">#979</a>), (<a href="https://github.com/airbnb/enzyme/pull/983" target="_blank">#983</a>)</li>
+<li>Added missing isEmptyRender() docs</li>
+<li>update jsdom guides for v10 and later (<a href="https://github.com/airbnb/enzyme/pull/921" target="_blank">#921</a>)</li>
+</ul>
+<h3 id="refactors">Refactors</h3>
+<ul>
+<li><code>shallow</code>/<code>mount</code>: Make all references to the wrapper <code>class</code> call into <code>this.wrap</code></li>
+<li>update <code>uuid</code> from v2 to v3 (<a href="https://github.com/airbnb/enzyme/pull/998" target="_blank">#998</a>)</li>
+</ul>
+<h2 id="282">2.8.2</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Loosen react-compat implicit dependency logic for React 15.4 (<a href="https://github.com/airbnb/enzyme/pull/896" target="_blank">#896</a>)</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>Update docs to use <code>prop-types</code> (<a href="https://github.com/airbnb/enzyme/pull/894" target="_blank">#894</a>, <a href="https://github.com/airbnb/enzyme/issue/890" target="_blank">#890</a>)</li>
+</ul>
+<h2 id="281">2.8.1</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>support React@15.5 (<a href="https://github.com/airbnb/enzyme/pull/876" target="_blank">#876</a>)</li>
+<li>no longer depend on <code>React.createClass</code> (<a href="https://github.com/airbnb/enzyme/pull/877" target="_blank">#877</a>)</li>
+<li>Throw for malformed compound selectors (<a href="https://github.com/airbnb/enzyme/pull/868" target="_blank">#868</a>)</li>
+</ul>
+<h2 id="280">2.8.0</h2>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li>add disableLifecycleMethods for shallow (<a href="https://github.com/airbnb/enzyme/pull/789" target="_blank">#789</a>)</li>
+<li>Match children before and after interpolation (<a href="https://github.com/airbnb/enzyme/pull/512" target="_blank">#512</a>)</li>
+<li>Supporting passing context to static rendering (<a href="https://github.com/airbnb/enzyme/pull/429" target="_blank">#429</a>)</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Fix an issue w/ cleaning up global.document (<a href="https://github.com/airbnb/enzyme/pull/855" target="_blank">#855</a>)</li>
+<li>Update props when shouldComponentUpdate returns <code>false</code> and <code>lifecycleExperimental</code> is on (<a href="https://github.com/airbnb/enzyme/pull/807" target="_blank">#807</a>)</li>
+<li>Properly pass along options in <code>dive</code> (<a href="https://github.com/airbnb/enzyme/pull/771" target="_blank">#771</a>)</li>
+</ul>
+<h2 id="271-january-22-2017">2.7.1 (January 22, 2017)</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li><code>mount</code>: Fix bug from (<a href="https://github.com/airbnb/enzyme/pull/677" target="_blank">#677</a> (<a href="https://github.com/airbnb/enzyme/pull/680" target="_blank">#680</a>)</li>
+<li><code>mount</code>: ignore text nodes in childrenOfInst (<a href="https://github.com/airbnb/enzyme/pull/604" target="_blank">#604</a>)</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>Update Docs for .getNode and .getNodes (<a href="https://github.com/airbnb/enzyme/pull/743" target="_blank">#743</a>)</li>
+<li>Add a link for <code>ShallowWrapper#dive()</code> (<a href="https://github.com/airbnb/enzyme/pull/759" target="_blank">#759</a></li>
+<li>Fix alphabetical order of API lists (<a href="https://github.com/airbnb/enzyme/pull/761" target="_blank">#761</a>)</li>
+</ul>
+<h2 id="270-december-21-2016">2.7.0 (December 21, 2016)</h2>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li><code>shallow</code>/<code>mount</code>: Add <code>.slice()</code> method (<a href="https://github.com/airbnb/enzyme/pull/661" target="_blank">#661</a>)</li>
+<li><code>mount</code>: implement ReactWrapper#getDOMNode (<a href="https://github.com/airbnb/enzyme/pull/679" target="_blank">#679</a>)</li>
+<li><code>shallow</code>/<code>mount</code>: Add <code>exists</code>; deprecate isEmpty() (<a href="https://github.com/airbnb/enzyme/pull/722" target="_blank">#722</a>)</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li><code>mount</code>: extract MountedTraversal.hasClassName from MountedTraversal.instHasClassName, which allows ReactWrapper.hasClass to bypass the !isDOMComponent(inst) call (<a href="https://github.com/airbnb/enzyme/pull/677" target="_blank">#677</a>)</li>
+<li><code>withDom</code>: Display a useful error when <code>withDom</code> fails to find &quot;jsdom&quot; (<a href="https://github.com/airbnb/enzyme/pull/686" target="_blank">#686</a>)</li>
+<li><code>mount</code>: ensure that <code>react-text</code> comment nodes don&#x2019;t break <code>.find</code> (<a href="https://github.com/airbnb/enzyme/pull/691" target="_blank">#691</a>)</li>
+<li><code>mount</code>: <code>.parents()</code> now filters out sibling path trees (<a href="https://github.com/airbnb/enzyme/pull/713" target="_blank">#713</a>)</li>
+</ul>
+<h2 id="260-november-9-2016">2.6.0 (November 9, 2016)</h2>
+<h3 id="new-stuff">New Stuff</h3>
+<ul>
+<li>ensure ShallowWrapper render output can&apos;t get stale (<a href="https://github.com/airbnb/enzyme/pull/490" target="_blank">#490</a>)</li>
+</ul>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Use shim to detect constructor function name (<a href="https://github.com/airbnb/enzyme/pull/659" target="_blank">#659</a>)</li>
+<li><code>mount</code>/<code>shallow</code>: fix ID selectors (<a href="https://github.com/airbnb/enzyme/pull/670" target="_blank">#670</a>)</li>
+</ul>
+<h2 id="252-november-9-2016">2.5.2 (November 9, 2016)</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Use shim to detect constructor function name (<a href="https://github.com/airbnb/enzyme/pull/659" target="_blank">#659</a>)</li>
+<li><code>mount</code>/<code>shallow</code>: fix ID selectors (<a href="https://github.com/airbnb/enzyme/pull/670" target="_blank">#670</a>)</li>
+</ul>
+<h2 id="251-october-17-2016">2.5.1 (October 17, 2016)</h2>
+<h3 id="patches">Patches</h3>
+<ul>
+<li>continue to support one-argument <code>single</code> (<a href="https://github.com/airbnb/enzyme/pull/632" target="_blank">#632</a>)</li>
+</ul>
+<h2 id="250-october-17-2016">2.5.0 (October 17, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>pass callback on setState and setProps (<a href="https://github.com/airbnb/enzyme/pull/617" target="_blank">#617</a>)</p>
+</li>
+<li><p>Make ReactWrapper and ShallowWrapper iterable (<a href="https://github.com/airbnb/enzyme/pull/594" target="_blank">#594</a>)</p>
+</li>
+<li><p>add <code>.dive()</code> method to <code>shallow</code> (<a href="https://github.com/airbnb/enzyme/pull/618" target="_blank">#618</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Warn if selector contains a pseudo-class (<a href="https://github.com/airbnb/enzyme/pull/591" target="_blank">#591</a>)</p>
+</li>
+<li><p>change isCompoundSelector to not match prop selector (<a href="https://github.com/airbnb/enzyme/pull/595" target="_blank">#595</a>)</p>
+</li>
+<li><p>fixed hasClassName in case className is not a string and has toString method (<a href="https://github.com/airbnb/enzyme/pull/518" target="_blank">#518</a>)</p>
+</li>
+<li><p>Throw if some() is called on a root wrapper (<a href="https://github.com/airbnb/enzyme/pull/523" target="_blank">#523</a>)</p>
+</li>
+<li><p>Fix valid + falsy propvalues (<a href="https://github.com/airbnb/enzyme/pull/563" target="_blank">#563</a>)</p>
+</li>
+</ul>
+<h2 id="242-november-9-2016">2.4.2 (November 9, 2016)</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Use shim to detect constructor function name (<a href="https://github.com/airbnb/enzyme/pull/659" target="_blank">#659</a>)</li>
+<li><code>mount</code>/<code>shallow</code>: fix ID selectors (<a href="https://github.com/airbnb/enzyme/pull/670" target="_blank">#670</a>)</li>
+</ul>
+<h2 id="241-july-8-2016">2.4.1 (July 8, 2016)</h2>
+<h3 id="patches">Patches</h3>
+<ul>
+<li>Fix backwards incompatible <code>shouldComponentUpdate</code> call (<a href="https://github.com/airbnb/enzyme/pull/491" target="_blank">#491</a>)</li>
+</ul>
+<h2 id="240-july-7-2016">2.4.0 (July 7, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>Support all Component Lifecycle methods in ShallowRenderer (behind an experimental flag) (<a href="https://github.com/airbnb/enzyme/pull/318" target="_blank">#318</a>)</p>
+</li>
+<li><p>Add an <code>isEmptyRender()</code> method to both <code>ShallowWrapper</code> and <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/339" target="_blank">#339</a>)</p>
+</li>
+<li><p>Add support for batched updates with <code>ShallowRender.simulate</code> (<a href="https://github.com/airbnb/enzyme/pull/342" target="_blank">#342</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Switch to using classList instead of className (<a href="https://github.com/airbnb/enzyme/pull/448" target="_blank">#448</a>)</p>
+</li>
+<li><p>fixes mount().debug() output with mixed children (<a href="https://github.com/airbnb/enzyme/pull/476" target="_blank">#476</a>)</p>
+</li>
+<li><p>Support additional characters in attribute selectors (<a href="https://github.com/airbnb/enzyme/pull/412" target="_blank">#412</a>)</p>
+</li>
+<li><p>fix id selector not working when combined with a tag selector (<a href="https://github.com/airbnb/enzyme/pull/387" target="_blank">#387</a>)</p>
+</li>
+<li><p>Support spaces in attribute selector values (<a href="https://github.com/airbnb/enzyme/pull/427" target="_blank">#427</a>)</p>
+</li>
+</ul>
+<h2 id="230-may-9-2016">2.3.0 (May 9, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>add <code>.tap()</code> method to <code>ShallowWrapper</code> and <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/299" target="_blank">#299</a>)</p>
+</li>
+<li><p>add <code>.key()</code> method to <code>ShallowWrapper</code> and <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/327" target="_blank">#327</a>)</p>
+</li>
+<li><p>add support for descendent selectors, <code>&gt;</code>, <code>~</code> and <code>+</code> (<a href="https://github.com/airbnb/enzyme/pull/217" target="_blank">#217</a>)</p>
+</li>
+<li><p>new <code>containsMatchingElement</code>, <code>containsAllMatchingElements</code>, and <code>containsAnyMatchingElements</code> APIs (<a href="https://github.com/airbnb/enzyme/pull/362" target="_blank">#362</a>)</p>
+</li>
+<li><p>new <code>.name()</code> method (<a href="https://github.com/airbnb/enzyme/pull/335" target="_blank">#335</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>add <code>dblclick</code> to eventType map for simulate (<a href="https://github.com/airbnb/enzyme/pull/317" target="_blank">#317</a>)</p>
+</li>
+<li><p>fix <code>pathToNode</code> bug with child-containing children (<a href="https://github.com/airbnb/enzyme/pull/296" target="_blank">#296</a>)</p>
+</li>
+<li><p>prioritize <code>displayName</code> over <code>name</code> for consistency in <code>.debug()</code> (<a href="https://github.com/airbnb/enzyme/pull/332" target="_blank">#332</a>)</p>
+</li>
+<li><p>handle insignificant whitespace in className (<a href="https://github.com/airbnb/enzyme/pull/348" target="_blank">#348</a>)</p>
+</li>
+<li><p>fix handling of SFC components and <code>.instance()</code> (<a href="https://github.com/airbnb/enzyme/pull/359" target="_blank">#359</a>)</p>
+</li>
+<li><p>reduce false positives by using argument validation for <code>.contains</code> (<a href="https://github.com/airbnb/enzyme/pull/259" target="_blank">#259</a>)</p>
+</li>
+<li><p>fix equality algorithm so that non-renderable nodes are equivalent (<a href="https://github.com/airbnb/enzyme/pull/192" target="_blank">#192</a>)</p>
+</li>
+<li><p>add better error handling for <code>state</code>, <code>setState</code>, and <code>context</code> (<a href="https://github.com/airbnb/enzyme/pull/373" target="_blank">#373</a>)</p>
+</li>
+</ul>
+<h2 id="220-march-21-2016">2.2.0 (March 21, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li>add <code>options</code> param to <code>ShallowWrapper::shallow</code> (<a href="https://github.com/airbnb/enzyme/pull/275" target="_blank">#275</a>)</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>make enzyme compatible with all React 15 RCs (<a href="https://github.com/airbnb/enzyme/pull/272" target="_blank">#272</a>)</p>
+</li>
+<li><p>increase coverage for Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/267" target="_blank">#267</a>)</p>
+</li>
+<li><p>improve context support for Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/256" target="_blank">#256</a>)</p>
+</li>
+<li><p>fix tree traversal for Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/257" target="_blank">#257</a>)</p>
+</li>
+<li><p>fix <code>.find</code> for nested Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/274" target="_blank">#274</a>)</p>
+</li>
+<li><p>fix <code>.props()</code> and <code>.debug()</code> methods for Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/255" target="_blank">#255</a>)</p>
+</li>
+<li><p>prevent falsy nodes from being counted as children (<a href="https://github.com/airbnb/enzyme/pull/251" target="_blank">#251</a>)</p>
+</li>
+</ul>
+<h2 id="210-march-10-2016">2.1.0 (March 10, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>add support for React 15.0.0-rc.1 (<a href="https://github.com/airbnb/enzyme/pull/240" target="_blank">#240</a>)</p>
+</li>
+<li><p>add <code>.unmount()</code> method for ShallowWrapper (<a href="https://github.com/airbnb/enzyme/pull/215" target="_blank">#215</a>)</p>
+</li>
+<li><p>add direct imports for <code>mount</code>, <code>shallow</code>, and <code>render</code> (<a href="https://github.com/airbnb/enzyme/pull/198" target="_blank">#198</a>)</p>
+</li>
+<li><p>add a <code>.childAt(n)</code> shorthand method (<a href="https://github.com/airbnb/enzyme/pull/187" target="_blank">#187</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>fix bug in .contains() for matching sub-arrays (<a href="https://github.com/airbnb/enzyme/pull/226" target="_blank">#226</a>)</p>
+</li>
+<li><p>fix bug in matching by type displayName (<a href="https://github.com/airbnb/enzyme/pull/230" target="_blank">#230</a>)</p>
+</li>
+<li><p>add more useful warnings for missing implicit dependencies (<a href="https://github.com/airbnb/enzyme/pull/228" target="_blank">#228</a>)</p>
+</li>
+<li><p>improve SFC support for <code>.type()</code> (<a href="https://github.com/airbnb/enzyme/pull/196" target="_blank">#196</a>)</p>
+</li>
+<li><p>fix null handling for <code>.html()</code> and <code>.render()</code> (<a href="https://github.com/airbnb/enzyme/pull/196" target="_blank">#196</a>)</p>
+</li>
+<li><p>moved from <code>underscore</code> to <code>lodash</code> (<a href="https://github.com/airbnb/enzyme/pull/189" target="_blank">#189</a>)</p>
+</li>
+</ul>
+<h2 id="200-february-10-2016">2.0.0 (February 10, 2016)</h2>
+<h3 id="major-changes-breaking">Major Changes (breaking)</h3>
+<ul>
+<li><p>removed <code>describeWithDOM</code> utility (<a href="https://github.com/airbnb/enzyme/pull/159" target="_blank">#159</a>)</p>
+</li>
+<li><p>removed <code>useSinon</code>, <code>spyPrototype</code> and <code>spyLifecycle</code> utilities (<a href="https://github.com/airbnb/enzyme/pull/159" target="_blank">#159</a>)</p>
+</li>
+<li><p>removed <code>sinon</code> dependency (<a href="https://github.com/airbnb/enzyme/pull/159" target="_blank">#159</a>)</p>
+</li>
+<li><p>removed <code>jsdom</code> dependency (<a href="https://github.com/airbnb/enzyme/pull/159" target="_blank">#159</a>)</p>
+</li>
+</ul>
+<h2 id="160-february-10-2016">1.6.0 (February 10, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li>add option for childContextTypes of <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/171" target="_blank">#171</a>)</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Prevent null or false nodes from being passed into tree traversal (<a href="https://github.com/airbnb/enzyme/pull/174" target="_blank">#174</a>)</p>
+</li>
+<li><p>setProps no longer swallows exceptions (<a href="https://github.com/airbnb/enzyme/pull/170" target="_blank">#170</a>)</p>
+</li>
+<li><p><code>.type()</code> and <code>.props()</code> should not fail on null now (<a href="https://github.com/airbnb/enzyme/pull/162" target="_blank">#162</a>)</p>
+</li>
+</ul>
+<h2 id="150-february-2-2016">1.5.0 (February 2, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>Add <code>attachTo</code> option to <code>mount</code> to mount to a specific element (<a href="https://github.com/airbnb/enzyme/pull/160" target="_blank">#160</a>)</p>
+</li>
+<li><p>Add <code>.debug()</code> method to <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/158" target="_blank">#158</a>)</p>
+</li>
+<li><p>Add <code>.mount()</code> and <code>.unmount()</code> APIs to <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/155" target="_blank">#155</a>)</p>
+</li>
+<li><p>Add <code>.render()</code> method to <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/156" target="_blank">#156</a>)</p>
+</li>
+<li><p>Allow <code>.contains()</code> to accept an array of nodes (<a href="https://github.com/airbnb/enzyme/pull/154" target="_blank">#154</a>)</p>
+</li>
+<li><p>Add <code>.context()</code> method to <code>ReactWrapper</code> and <code>ShallowWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/152" target="_blank">#152</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Fixed some behavior with <code>.contains()</code> matching on strings (<a href="https://github.com/airbnb/enzyme/pull/148" target="_blank">#148</a>)</p>
+</li>
+<li><p>Fixed <code>.debug()</code>&apos;s output for numeric children (<a href="https://github.com/airbnb/enzyme/pull/149" target="_blank">#149</a>)</p>
+</li>
+<li><p>Documentation fixes</p>
+</li>
+<li><p>Update versions of dependencies</p>
+</li>
+</ul>
+<h2 id="141-january-24-2016">1.4.1 (January 24, 2016)</h2>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Upgrade to babel 6 (<a href="https://github.com/airbnb/enzyme/pull/81" target="_blank">#81</a>)</p>
+</li>
+<li><p>Fix event naming bug in ShallowWrapper (<a href="https://github.com/airbnb/enzyme/pull/135" target="_blank">#135</a>)</p>
+</li>
+<li><p>Documentation fixes</p>
+</li>
+</ul>
+<h2 id="140-january-21-2016">1.4.0 (January 21, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p><code>describeWithDOM</code> enhancement (<a href="https://github.com/airbnb/enzyme/pull/126" target="_blank">#126</a>)</p>
+</li>
+<li><p>add <code>.equals()</code> method to <code>ShallowWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/124" target="_blank">#124</a>)</p>
+</li>
+<li><p>add object selector syntax (<a href="https://github.com/airbnb/enzyme/pull/110" target="_blank">#110</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Fixed confusing behavior of prop selector syntax (<a href="https://github.com/airbnb/enzyme/pull/130" target="_blank">#130</a>)</p>
+</li>
+<li><p>Documentation fixes</p>
+</li>
+</ul>
+<h2 id="131-january-15-2016">1.3.1 (January 15, 2016)</h2>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Fix setProps not passing old context (<a href="https://github.com/airbnb/enzyme/pull/121" target="_blank">#121</a>)</p>
+</li>
+<li><p>Map lowercase mouse events in simulate (<a href="https://github.com/airbnb/enzyme/pull/77" target="_blank">#77</a>)</p>
+</li>
+</ul>
+<h2 id="130-january-13-2016">1.3.0 (January 13, 2016)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li><p>Added <code>.html()</code> method to <code>ReactWrapper</code> (<a href="https://github.com/airbnb/enzyme/pull/71" target="_blank">#71</a>)</p>
+</li>
+<li><p>Support property selector (i.e. <code>[prop=&quot;foo&quot;]</code>) (<a href="https://github.com/airbnb/enzyme/pull/70" target="_blank">#70</a>)</p>
+</li>
+<li><p>jsdom dependency now allows a range of supported versions (<a href="https://github.com/airbnb/enzyme/pull/95" target="_blank">#95</a>)</p>
+</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><p>Normalized <code>setProps()</code> behavior between <code>mount</code>/<code>shallow</code> to merge props (<a href="https://github.com/airbnb/enzyme/pull/103" target="_blank">#103</a>)</p>
+</li>
+<li><p>Exclude <code>_book</code> from published package (<a href="https://github.com/airbnb/enzyme/pull/85" target="_blank">#85</a>)</p>
+</li>
+<li><p>Various documentation, tests, and style changes</p>
+</li>
+</ul>
+<h2 id="120-december-10-2015">1.2.0 (December 10, 2015)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li>Support for context (<a href="https://github.com/airbnb/enzyme/pull/62" target="_blank">#62</a>)</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li><code>nodeHasId</code> fix for some 0.14 corner cases (<a href="https://github.com/airbnb/enzyme/pull/65" target="_blank">#65</a>)</li>
+</ul>
+<h2 id="110-december-7-2015">1.1.0 (December 7, 2015)</h2>
+<h3 id="minor-changes">Minor Changes</h3>
+<ul>
+<li>Support for Stateless Functional Components (<a href="https://github.com/airbnb/enzyme/pull/53" target="_blank">#53</a>)</li>
+</ul>
+<h3 id="patches">Patches</h3>
+<ul>
+<li>Tweak <code>describeWithDOM</code> messaging (<a href="https://github.com/airbnb/enzyme/pull/48" target="_blank">#48</a>)</li>
+<li>Documentation Fixes</li>
+</ul>
+<h2 id="100-december-3-2015">1.0.0 (December 3, 2015)</h2>
+<ul>
+<li>Official Release!</li>
+</ul>
 
                                 
                                 </section>
@@ -2130,8 +2386,12 @@ describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
 
             
                 
+                <a href="docs/api/selector.html" class="navigation navigation-prev " aria-label="Previous page: Selectors">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="docs/guides.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Guides">
+                
+                <a href="docs/future.html" class="navigation navigation-next " aria-label="Next page: Future">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2142,7 +2402,7 @@ describe(<span class="hljs-string">&apos;&lt;Foo /&gt;&apos;</span>, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Guides","level":"1.2","depth":1,"path":"docs/guides.md","ref":"docs/guides.md","articles":[{"title":"Migration from 2.x to 3.x","level":"1.2.1","depth":2,"path":"docs/guides/migration-from-2-to-3.md","ref":"docs/guides/migration-from-2-to-3.md","articles":[]},{"title":"Browserify","level":"1.2.2","depth":2,"path":"docs/guides/browserify.md","ref":"docs/guides/browserify.md","articles":[]},{"title":"WebPack","level":"1.2.3","depth":2,"path":"docs/guides/webpack.md","ref":"docs/guides/webpack.md","articles":[]},{"title":"JSDOM","level":"1.2.4","depth":2,"path":"docs/guides/jsdom.md","ref":"docs/guides/jsdom.md","articles":[]},{"title":"Jest","level":"1.2.5","depth":2,"path":"docs/guides/jest.md","ref":"docs/guides/jest.md","articles":[]},{"title":"Karma","level":"1.2.6","depth":2,"path":"docs/guides/karma.md","ref":"docs/guides/karma.md","articles":[]},{"title":"Mocha","level":"1.2.7","depth":2,"path":"docs/guides/mocha.md","ref":"docs/guides/mocha.md","articles":[]},{"title":"React Native","level":"1.2.8","depth":2,"path":"docs/guides/react-native.md","ref":"docs/guides/react-native.md","articles":[]},{"title":"Lab","level":"1.2.9","depth":2,"path":"docs/guides/lab.md","ref":"docs/guides/lab.md","articles":[]},{"title":"Tape and AVA","level":"1.2.10","depth":2,"path":"docs/guides/tape-ava.md","ref":"docs/guides/tape-ava.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-13T05:04:05.742Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T05:06:18.004Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Change Log","level":"1.5","depth":1,"next":{"title":"Future","level":"1.6","depth":1,"path":"docs/future.md","ref":"docs/future.md","articles":[]},"previous":{"title":"Selectors","level":"1.4.4","depth":2,"path":"docs/api/selector.md","ref":"docs/api/selector.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"CHANGELOG.md","mtime":"2017-11-11T01:50:06.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-15T05:06:18.004Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
